@@ -1,8 +1,10 @@
 package com.iecas.concurrency.example.finalDemo;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.HashMap;
 import java.util.Map;
-
+@Slf4j
 public class FinalExample3 {
     private final static  int a=2;
     private final static  String b="wlj";
@@ -24,6 +26,6 @@ public class FinalExample3 {
         //fe.test(2);
         //合法
         map.put(1,2);
-        System.out.println(map.get(1));
+        log.info(""+map.get(1));
     }
 }
