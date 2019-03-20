@@ -1,31 +1,32 @@
-package com.iecas.concurrency.example.collection.vector;
+package com.iecas.concurrency.example.collection.copyOnWrite;
 
-import java.util.Vector;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public class VectorExample02 {
+public class CopyOnWriteArrayListExample02 {
 
-    private static Vector<Integer> vector = new Vector<>();
+    private static List<Integer> list = new CopyOnWriteArrayList<>();
 
     public static void main(String[] args) {
 
         while (true) {
 
             for (int i = 0; i < 10; i++) {
-                vector.add(i);
+                list.add(i);
             }
 
             Thread thread1 = new Thread() {
                 public void run() {
-                    for (int i = 0; i < vector.size(); i++) {
-                        vector.remove(i);
+                    for (int i = 0; i < list.size(); i++) {
+                        list.remove(i);
                     }
                 }
             };
 
             Thread thread2 = new Thread() {
                 public void run() {
-                    for (int i = 0; i < vector.size(); i++) {
-                        vector.get(i);
+                    for (int i = 0; i < list.size(); i++) {
+                        list.get(i);
                     }
                 }
             };

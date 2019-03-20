@@ -1,6 +1,4 @@
-package com.iecas.concurrency.example.finalDemo;
-
-import java.util.Map;
+package com.iecas.concurrency.example.ImmuableObject;
 
 /**
  * 测试 final 关键字修饰的基本类型、引用类型的可变性。

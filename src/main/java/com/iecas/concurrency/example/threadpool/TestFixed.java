@@ -1,6 +1,6 @@
-package com.iecas.concurrency.example.threadpool.fixed;
+package com.iecas.concurrency.example.threadpool;
 
-import com.iecas.concurrency.example.threadpool.RunnableThread;
+import com.iecas.concurrency.example.overcome.runnable.start.RunnableThread;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

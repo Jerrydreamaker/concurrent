@@ -1,4 +1,4 @@
-package com.iecas.concurrency.example.status_bak;
+package com.iecas.concurrency.example.status;
 
 /**
  * 暂停当前正在执行的线程对象，并执行其他线程，静态方法。

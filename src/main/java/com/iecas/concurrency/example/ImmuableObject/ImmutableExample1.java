@@ -1,4 +1,4 @@
-package com.iecas.concurrency.example.finalDemo;
+package com.iecas.concurrency.example.ImmuableObject;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;

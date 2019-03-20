@@ -1,4 +1,4 @@
-package com.iecas.concurrency.example.threadpool.threadpoolexecutor;
+package com.iecas.concurrency.example.threadpool;
 
 import java.util.concurrent.*;
 

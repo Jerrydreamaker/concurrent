@@ -1,4 +1,4 @@
-package com.iecas.concurrency.example.finalDemo;
+package com.iecas.concurrency.example.ImmuableObject;
 
 public class FinalUser {
     private int age;

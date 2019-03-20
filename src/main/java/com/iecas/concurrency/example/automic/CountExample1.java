@@ -1,4 +1,4 @@
-package com.iecas.concurrency.example.count;
+package com.iecas.concurrency.example.automic;
 
 import lombok.extern.slf4j.Slf4j;
 

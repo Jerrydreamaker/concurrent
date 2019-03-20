@@ -1,4 +1,4 @@
-package com.iecas.concurrency.example.status_bak;
+package com.iecas.concurrency.example.status;
 /**
  * 合并线程，等待该线程的终止，成员方法。
  */

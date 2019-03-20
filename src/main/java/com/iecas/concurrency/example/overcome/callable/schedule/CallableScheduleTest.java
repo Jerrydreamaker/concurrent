@@ -1,16 +1,14 @@
-package com.iecas.concurrency.example.overcome.runnable.schedule;
+package com.iecas.concurrency.example.overcome.callable.schedule;
 
-import com.iecas.concurrency.example.overcome.runnable.start.RunnableThread;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
-public class RunnableScheduleTest {
-    public static void main(String[] args) {
+public class CallableScheduleTest {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         ScheduledExecutorService executorService= Executors.newScheduledThreadPool(10);
-        executorService.schedule(new RunnableThread(),3, TimeUnit.SECONDS);
+        ScheduledFuture<String> future=executorService.schedule(new CallableThread(),3, TimeUnit.SECONDS);
         //executorService
+        System.out.println(future.get());
         executorService.shutdown();
     }
 }

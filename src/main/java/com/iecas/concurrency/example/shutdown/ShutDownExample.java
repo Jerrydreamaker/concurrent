@@ -1,14 +1,14 @@
-package com.iecas.concurrency.example.future;
+package com.iecas.concurrency.example.shutdown;
 
 import java.util.concurrent.*;
 
-public class FutureExample {
+public class ShutDownExample {
     public static class MyCallable implements Callable<String>{
 
         @Override
         public String call() throws Exception {
-            System.out.println("Do Something in Thread");
             Thread.sleep(5000);
+            System.out.println("Do Something in Thread");
             return "Done";
         }
     }
@@ -16,7 +16,9 @@ public class FutureExample {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ExecutorService service= Executors.newCachedThreadPool();
         Future<String> future=service.submit(new MyCallable());
-        System.out.println("Do Something in TestCached");
+        System.out.println("Do Something in Main");
+        //service.shutdown();
+        service.shutdownNow();
         System.out.println("Result:"+future.get());
     }
 }

@@ -1,4 +1,4 @@
-package com.iecas.concurrency.example.future;
+package com.iecas.concurrency.example.overcome.runnable.future;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 /**
  * execute 方法提交 Runnable 接口实现类。
  */
-public class RunnableSubmit01 {
+public class RunnableExecute {
     public static class MyRunnable implements Runnable{
 
         @Override

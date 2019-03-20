@@ -1,4 +1,6 @@
-package com.iecas.concurrency.example.future;
+package com.iecas.concurrency.example.overcome.callable.futuretask;
+
+import com.iecas.concurrency.example.overcome.callable.future.FutureExample;
 
 import java.util.concurrent.*;
 
@@ -15,10 +17,8 @@ public class FutureTaskExample {
     }
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        FutureTask<String> task=new FutureTask<String>(new FutureExample.MyCallable());
 
-        /*
-        new Thread(task).start();*/
+        FutureTask<String> task=new FutureTask<String>(new FutureExample.MyCallable());
         ExecutorService service=Executors.newCachedThreadPool();
         Future future=service.submit(task);
         future.get();

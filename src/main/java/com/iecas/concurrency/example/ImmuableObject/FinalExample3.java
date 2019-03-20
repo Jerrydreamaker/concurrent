@@ -1,4 +1,4 @@
-package com.iecas.concurrency.example.finalDemo;
+package com.iecas.concurrency.example.ImmuableObject;
 
 import lombok.extern.slf4j.Slf4j;
 

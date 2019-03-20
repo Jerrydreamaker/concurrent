@@ -7,10 +7,7 @@ import java.util.List;
 import java.util.concurrent.*;
 
 @Slf4j
-/**
- * 线程对 size 的修改不能及时被其他线程感知，所以在共享数组中发生覆盖。
- */
-public class ArrayListExample {
+public class CopyOnWriteArrayListExample {
     private static int clientTotal=5000;
     private static int threadTotal=200;
     private  static List<Integer> list=new CopyOnWriteArrayList<>();

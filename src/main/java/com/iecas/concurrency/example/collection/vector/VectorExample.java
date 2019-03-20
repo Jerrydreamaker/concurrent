@@ -1,20 +1,21 @@
-package com.iecas.concurrency.example.collection.arraylist;
+package com.iecas.concurrency.example.collection.vector;
 
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
 @Slf4j
-public class ArrayListExample {
+public class VectorExample {
     private static int clientTotal=5000;
     private static int threadTotal=200;
     //private static int count=0;
-    private  static List<Integer> list=new ArrayList<Integer>();
+    private  static List<Integer> list=new Vector<>();
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService excutorService= Executors.newCachedThreadPool();//使用线程池。
@@ -38,7 +39,7 @@ public class ArrayListExample {
         }
         countDownLatch.await();
         excutorService.shutdown();//强行shutdown加快程序执行。
-        log.info("size:{}"+list.size());
+        log.info("size:{}",list.size());
     }
 
     public static void add(int e){

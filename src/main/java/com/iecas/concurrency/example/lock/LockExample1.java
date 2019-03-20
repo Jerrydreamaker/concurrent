@@ -1,4 +1,4 @@
-package com.iecas.concurrency.example.automic;
+package com.iecas.concurrency.example.lock;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -6,12 +6,18 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * ReentrantLock 的使用。
+ */
 @Slf4j
-public class CountExample1 {
+public class LockExample1 {
     private static int clientTotal=5000;
     private static int threadTotal=200;
     private static int count=0;
+    private static Lock lock=new ReentrantLock();
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService excutorService= Executors.newCachedThreadPool();//使用线程池。
@@ -37,6 +43,12 @@ public class CountExample1 {
     }
 
     public static void add(){
-        count++;
+        lock.lock();
+        try {
+            count++;
+        }finally {
+           lock.unlock();
+        }
+
     }
 }

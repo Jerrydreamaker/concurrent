@@ -6,15 +6,17 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.StampedLock;
 
+/**
+ * StampedLock 的使用。
+ */
 @Slf4j
-public class LockExample1 {
+public class LockExample3 {
     private static int clientTotal=5000;
     private static int threadTotal=200;
     private static int count=0;
-    private static Lock lock=new ReentrantLock();
+    private static StampedLock lock=new StampedLock();
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService excutorService= Executors.newCachedThreadPool();//使用线程池。
@@ -36,15 +38,15 @@ public class LockExample1 {
         }
         countDownLatch.await();
         excutorService.shutdown();//强行shutdown加快程序执行。
-        log.info("count:{}"+count);
+        log.info("count:{}",count);
     }
 
     public static void add(){
-        lock.lock();
+        long stamp=lock.writeLock();
         try {
             count++;
         }finally {
-           lock.unlock();
+           lock.unlock(stamp);
         }
 
     }
